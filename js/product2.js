@@ -123,7 +123,7 @@
                     const createButtonAddToCart = document.createElement('button');
                     createButtonAddToCart.classList.add('btn', 'btn-outline-primary', 'btn-sm', 'mt-2');
                     createButtonAddToCart.textContent = 'Añadir al carrito';
-                    createButtonAddToCart.setAttribute('id', info.codigo);
+                    createButtonAddToCart.setAttribute('marcador', info.codigo);
                     createButtonAddToCart.addEventListener('click', App.handlers.addProductToCart);
                     nodeFirst.appendChild(nodeSecond);
                     nodeSecond.appendChild(nodeThird);
@@ -158,7 +158,7 @@
             }, 
             addProductToCart: async (e) => {
                 e.preventDefault();
-                App.htmlElements.cart.push(e.target.getAttribute('id'))
+                App.htmlElements.cart.push(e.target.getAttribute('marcador'))
                 App.handlers.saveCartInLocalStorage();
                 App.handlers.renderProductAdded();
             },
